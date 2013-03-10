@@ -1,0 +1,5 @@
+F:\school\work_store\Nancy\restaurant-web-reservation\RestaurantWebReservation\RestaurantWebReservation\obj\Debug\ResolveAssemblyReference.cache
+F:\school\work_store\Nancy\restaurant-web-reservation\RestaurantWebReservation\RestaurantWebReservation\bin\RestaurantWebReservation.dll
+F:\school\work_store\Nancy\restaurant-web-reservation\RestaurantWebReservation\RestaurantWebReservation\bin\RestaurantWebReservation.pdb
+F:\school\work_store\Nancy\restaurant-web-reservation\RestaurantWebReservation\RestaurantWebReservation\obj\Debug\RestaurantWebReservation.dll
+F:\school\work_store\Nancy\restaurant-web-reservation\RestaurantWebReservation\RestaurantWebReservation\obj\Debug\RestaurantWebReservation.pdb

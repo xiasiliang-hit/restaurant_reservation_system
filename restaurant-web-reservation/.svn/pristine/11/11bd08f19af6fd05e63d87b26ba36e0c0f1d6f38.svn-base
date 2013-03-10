@@ -1,0 +1,96 @@
+# depslib dependency file v1.0
+1314282334 source:f:\temperary\genepredict\main.c
+	"Global.h"
+	"Statistics.h"
+	"Test.h"
+
+1311429984 f:\temperary\genepredict\stdafx.h
+	"targetver.h"
+	<stdio.h>
+	<tchar.h>
+
+1311429984 f:\temperary\genepredict\targetver.h
+	<SDKDDKVer.h>
+
+1314340765 f:\temperary\genepredict\global.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<stdbool.h>
+
+1313990838 f:\temperary\genepredict\statistics.h
+	"Global.h"
+
+1314275270 f:\temperary\genepredict\test.h
+	"Global.h"
+
+1314327002 source:f:\temperary\genepredict\statistics.c
+	"Statistics.h"
+
+1314330406 source:f:\temperary\genepredict\test.c
+	"Test.h"
+
+1314280262 source:f:\temperary\genepredict\global.c
+	"Global.h"
+
+1314888117 source:f:\school\gene\mine\c_version\gene40\genepredict\statistics.c
+	"Statistics.h"
+
+1314436135 f:\school\gene\mine\c_version\gene40\genepredict\statistics.h
+	"Global.h"
+
+1314340765 f:\school\gene\mine\c_version\gene40\genepredict\global.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<stdbool.h>
+
+1314522257 source:f:\school\gene\mine\c_version\gene40\genepredict\test.c
+	"Test.h"
+
+1314275270 f:\school\gene\mine\c_version\gene40\genepredict\test.h
+	"Global.h"
+
+1314668271 source:f:\school\gene\mine\c_version\gene40\genepredict\main.c
+	"Global.h"
+	"Statistics.h"
+	"Test.h"
+
+1314280262 source:f:\school\gene\mine\c_version\gene40\genepredict\global.c
+	"Global.h"
+
+1314522257 source:f:\school\gene\mine\c_version\gene_cversion\genepredict\test.c
+	"Test.h"
+
+1314275270 f:\school\gene\mine\c_version\gene_cversion\genepredict\test.h
+	"Global.h"
+
+1332226188 f:\school\gene\mine\c_version\gene_cversion\genepredict\global.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<stdbool.h>
+
+1332227753 source:f:\school\gene\mine\c_version\gene_cversion\genepredict\main.c
+	"Global.h"
+	"Statistics.h"
+	"Test.h"
+
+1332227753 f:\school\gene\mine\c_version\gene_cversion\genepredict\statistics.h
+	"Global.h"
+
+1332228809 source:f:\school\gene\mine\c_version\gene_cversion\genepredict\statistics.c
+	"Statistics.h"
+
+1332226408 source:f:\school\gene\mine\c_version\gene_cversion\genepredict\global.c
+	"Global.h"
+
+1331867619 source:f:\school\gene\mine\c_version\gene_cversion\genepredict\interaction.c
+	"Interaction.h"
+
+1324824702 f:\school\gene\mine\c_version\gene_cversion\genepredict\interaction.h
+	"Global.h"
+

@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+using System.Configuration;
+
+using RestaurantWebReservation.Application.BasicDataStractrue;
+using RestaurantWebReservation.Application.Role;
+
+namespace RestaurantWebReservation.Presentation.AdminPage
+{
+    public partial class UserConfig : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(ConfigurationManager.AppSettings["ManagerRegister"]);
+        }
+    }
+}

@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="RestaurantWebReservation.Presentation.Main" %>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>
+            <asp:Label ID="Label1" runat="server" Text="Restaurant"></asp:Label>
+        
+    </div>
+    <div>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+                <cc1:AutoCompleteExtender ID="TextBoxName_AutoCompleteExtender" runat="server" 
+                    ServiceMethod="LoginAutoCommplete" 
+                    ServicePath="~/Application/Service/AutoCompleteWebService.asmx" 
+                    TargetControlID="TextBoxName" UseContextKey="True">
+                </cc1:AutoCompleteExtender>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
+    <div>
+        <asp:TextBox ID="TextBoxPwd" runat="server" style="margin-top: 0px"></asp:TextBox>
+        <asp:Button ID="ButtonLogin" runat="server" Text="Login" />
+        <asp:Button ID="ButtonRegister" runat="server" onclick="ButtonRegister_Click" 
+            Text="Register" />
+    </div>
+    <p>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </p>
+    </form>
+</body>
+</html>

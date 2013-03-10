@@ -1,0 +1,137 @@
+# depslib dependency file v1.0
+1314326761 source:f:\temperary\gene2\main.c
+	"Global.h"
+	"PGRelation.h"
+	"Phenotype.h"
+	"Protein.h"
+	"PreProcess.h"
+	"Test.h"
+	"LocationMap.h"
+
+1314331870 source:f:\temperary\gene2\locationmap.c
+	"LocationMap.h"
+	"Test.h"
+
+1314339619 f:\temperary\gene2\locationmap.h
+	"Global.h"
+
+1314283158 f:\temperary\gene2\global.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<limits.h>
+
+1314278294 f:\temperary\gene2\test.h
+	"Global.h"
+	"Protein.h"
+	"Phenotype.h"
+	"PGRelation.h"
+	"LocationMap.h"
+
+1314326682 f:\temperary\gene2\protein.h
+	"Global.h"
+	"Phenotype.h"
+
+1314281728 f:\temperary\gene2\phenotype.h
+	"Global.h"
+
+1314279360 f:\temperary\gene2\pgrelation.h
+	"Global.h"
+
+1314278300 source:f:\temperary\gene2\pgrelation.c
+	"PGRelation.h"
+
+1314326419 source:f:\temperary\gene2\phenotype.c
+	"Phenotype.h"
+	"Test.h"
+
+1314329713 source:f:\temperary\gene2\preprocess.c
+	"PreProcess.h"
+
+1314329713 f:\temperary\gene2\preprocess.h
+	"Global.h"
+	"Protein.h"
+	"Phenotype.h"
+	"Test.h"
+
+1314323990 source:f:\temperary\gene2\protein.c
+	"Protein.h"
+
+1314339619 source:f:\temperary\gene2\test.c
+	"Test.h"
+
+1314326616 source:f:\temperary\gene2\global.c
+	"Global.h"
+	"Phenotype.h"
+	"Protein.h"
+	"PGRelation.h"
+
+1319252617 source:f:\school\gene\mine\c_version\gene_cversion\gene2\locationmap.c
+	"LocationMap.h"
+	"Test.h"
+
+1319269266 f:\school\gene\mine\c_version\gene_cversion\gene2\locationmap.h
+	"Global.h"
+
+1319251731 f:\school\gene\mine\c_version\gene_cversion\gene2\global.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<limits.h>
+
+1314278294 f:\school\gene\mine\c_version\gene_cversion\gene2\test.h
+	"Global.h"
+	"Protein.h"
+	"Phenotype.h"
+	"PGRelation.h"
+	"LocationMap.h"
+
+1319185654 f:\school\gene\mine\c_version\gene_cversion\gene2\protein.h
+	"Global.h"
+	"Phenotype.h"
+
+1319181380 f:\school\gene\mine\c_version\gene_cversion\gene2\phenotype.h
+	"Global.h"
+
+1319347375 f:\school\gene\mine\c_version\gene_cversion\gene2\pgrelation.h
+	"Global.h"
+
+1314278300 source:f:\school\gene\mine\c_version\gene_cversion\gene2\pgrelation.c
+	"PGRelation.h"
+
+1314326419 source:f:\school\gene\mine\c_version\gene_cversion\gene2\phenotype.c
+	"Phenotype.h"
+	"Test.h"
+
+1319270656 source:f:\school\gene\mine\c_version\gene_cversion\gene2\protein.c
+	"Protein.h"
+
+1319254401 source:f:\school\gene\mine\c_version\gene_cversion\gene2\test.c
+	"Test.h"
+
+1319251730 source:f:\school\gene\mine\c_version\gene_cversion\gene2\global.c
+	"Global.h"
+	"Phenotype.h"
+	"Protein.h"
+	"PGRelation.h"
+
+1319270064 source:f:\school\gene\mine\c_version\gene_cversion\gene2\main.c
+	"Global.h"
+	"PGRelation.h"
+	"Phenotype.h"
+	"Protein.h"
+	"PreProcess.h"
+	"Test.h"
+	"LocationMap.h"
+
+1319251682 f:\school\gene\mine\c_version\gene_cversion\gene2\preprocess.h
+	"Global.h"
+	"Protein.h"
+	"Phenotype.h"
+	"Test.h"
+
+1319252236 source:f:\school\gene\mine\c_version\gene_cversion\gene2\preprocess.c
+	"PreProcess.h"
+

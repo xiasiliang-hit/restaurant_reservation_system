@@ -1,0 +1,5 @@
+<add name="RestaurantWebReservationConnectionString" connectionString="Data Source=.\;Initial Catalog=RestaurantWebReservation;Persist Security Info=True;User ID=RestaurantWebReservation;Password=123456"
+   providerName="System.Data.SqlClient" />
+
+<add name="RestaurantWebReservationConnectionString" connectionString="Data Source=.\;Initial Catalog=RestaurantWebReservation;Integrated Security=True"
+   providerName="System.Data.SqlClient" />

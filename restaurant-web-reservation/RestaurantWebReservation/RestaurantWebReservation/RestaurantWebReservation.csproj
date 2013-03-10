@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D2919990-1E18-4231-8CA6-4B8731D8BAC6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RestaurantWebReservation</RootNamespace>
+    <AssemblyName>RestaurantWebReservation</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.0.30512.20315, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Application\Service\AutoCompleteWebService.asmx" />
+    <Content Include="Image\Sys\add_to_cart.gif" />
+    <Content Include="Image\TableState\available.png" />
+    <Content Include="Image\TableState\busy.png" />
+    <Content Include="Image\TableState\timeout.png" />
+    <Content Include="Image\TableState\复件 可用.png" />
+    <Content Include="Image\Table\blank.jpeg" />
+    <Content Include="Image\Table\blank.jpg" />
+    <Content Include="Presentation\AdminPage\AdminMain.aspx" />
+    <Content Include="Presentation\AdminPage\DishAdd.aspx" />
+    <Content Include="Presentation\AdminPage\DishConfig.aspx" />
+    <Content Include="Presentation\AdminPage\ManagerRegister.aspx" />
+    <Content Include="Presentation\AdminPage\TableAdd.aspx" />
+    <Content Include="Presentation\AdminPage\TableConfig.aspx" />
+    <Content Include="Presentation\AdminPage\TimeConfig.aspx" />
+    <Content Include="Presentation\AdminPage\UserConfig.aspx" />
+    <Content Include="Presentation\CustomerPage\CustomerMain.aspx" />
+    <Content Include="Presentation\CustomerPage\DishDetail.aspx" />
+    <Content Include="Presentation\CustomerPage\DishCart.aspx" />
+    <Content Include="Presentation\CustomerPage\HistoryReservation.aspx" />
+    <Content Include="Presentation\CustomerPage\HistoryDelivery.aspx" />
+    <Content Include="Presentation\CustomerPage\NewDelivery.aspx" />
+    <Content Include="Presentation\CustomerPage\NewReservation.aspx" />
+    <Content Include="Presentation\CustomerPage\Register.aspx" />
+    <Content Include="Presentation\CustomerPage\ReservationManage.aspx" />
+    <Content Include="Presentation\ManagerPage\AddDish.aspx" />
+    <Content Include="Presentation\ManagerPage\AnalyzeDaily.aspx" />
+    <Content Include="Presentation\ManagerPage\AnalyzeHistoryDelivery.aspx" />
+    <Content Include="Presentation\ManagerPage\Bill.aspx" />
+    <Content Include="Presentation\ManagerPage\DishCart.aspx" />
+    <Content Include="Presentation\ManagerPage\ManageReservation.aspx" />
+    <Content Include="Presentation\ManagerPage\ManagerMain.aspx" />
+    <Content Include="Presentation\ManagerPage\PublishNews.aspx" />
+    <Content Include="Presentation\ManagerPage\WalkIn.aspx" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Presentation\MainManager.Master" />
+    <Content Include="Presentation\MainCustomer.Master" />
+    <None Include="DataAccess\DataContext.dbml">
+      <SubType>Designer</SubType>
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataContext.designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataAccess\DataContext.dbml.layout">
+      <DependentUpon>DataContext.dbml</DependentUpon>
+    </None>
+    <Content Include="Presentation\MainAdmin.Master" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\localhost\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\localhost\WebService1.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <None Include="Web References\localhost\WebService1.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\BasicDataStractrue\Comment.cs" />
+    <Compile Include="Application\BasicDataStractrue\Delivery.cs" />
+    <Compile Include="Application\BasicDataStractrue\DeliveryState.cs" />
+    <Compile Include="Application\BasicDataStractrue\Dish.cs" />
+    <Compile Include="Application\BasicDataStractrue\DishQuota.cs" />
+    <Compile Include="Application\BasicDataStractrue\News.cs" />
+    <Compile Include="Application\BasicDataStractrue\Report.cs" />
+    <Compile Include="Application\BasicDataStractrue\DishReport.cs" />
+    <Compile Include="Application\BasicDataStractrue\Reservation.cs" />
+    <Compile Include="Application\BasicDataStractrue\ReservationState.cs" />
+    <Compile Include="Application\BasicDataStractrue\ReservationType.cs" />
+    <Compile Include="Application\BasicDataStractrue\SysTable.cs" />
+    <Compile Include="Application\BasicDataStractrue\TableState.cs" />
+    <Compile Include="Application\BasicDataStractrue\Tag.cs" />
+    <Compile Include="Application\Role\Admin.cs" />
+    <Compile Include="Application\Role\Customer.cs" />
+    <Compile Include="Application\Role\Manager.cs" />
+    <Compile Include="Application\Role\User.cs" />
+    <Compile Include="Application\Service\AutoCompleteWebService.asmx.cs">
+      <DependentUpon>AutoCompleteWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Application\Service\CheckService.cs" />
+    <Compile Include="Application\Service\PublicService.cs" />
+    <Compile Include="Application\Service\Restaurant.cs" />
+    <Compile Include="DataAccess\DataContext.designer.cs">
+      <DependentUpon>DataContext.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\AdminMain.aspx.cs">
+      <DependentUpon>AdminMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\AdminMain.aspx.designer.cs">
+      <DependentUpon>AdminMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\DishAdd.aspx.cs">
+      <DependentUpon>DishAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\DishAdd.aspx.designer.cs">
+      <DependentUpon>DishAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\DishConfig.aspx.cs">
+      <DependentUpon>DishConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\DishConfig.aspx.designer.cs">
+      <DependentUpon>DishConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\ManagerRegister.aspx.cs">
+      <DependentUpon>ManagerRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\ManagerRegister.aspx.designer.cs">
+      <DependentUpon>ManagerRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\TableAdd.aspx.cs">
+      <DependentUpon>TableAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\TableAdd.aspx.designer.cs">
+      <DependentUpon>TableAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\TableConfig.aspx.cs">
+      <DependentUpon>TableConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\TableConfig.aspx.designer.cs">
+      <DependentUpon>TableConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\TimeConfig.aspx.cs">
+      <DependentUpon>TimeConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\TimeConfig.aspx.designer.cs">
+      <DependentUpon>TimeConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\UserConfig.aspx.cs">
+      <DependentUpon>UserConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\AdminPage\UserConfig.aspx.designer.cs">
+      <DependentUpon>UserConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\CustomerMain.aspx.cs">
+      <DependentUpon>CustomerMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\CustomerMain.aspx.designer.cs">
+      <DependentUpon>CustomerMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\DishDetail.aspx.cs">
+      <DependentUpon>DishDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\DishDetail.aspx.designer.cs">
+      <DependentUpon>DishDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\DishCart.aspx.cs">
+      <DependentUpon>DishCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\DishCart.aspx.designer.cs">
+      <DependentUpon>DishCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\HistoryReservation.aspx.cs">
+      <DependentUpon>HistoryReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\HistoryReservation.aspx.designer.cs">
+      <DependentUpon>HistoryReservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\HistoryDelivery.aspx.cs">
+      <DependentUpon>HistoryDelivery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\HistoryDelivery.aspx.designer.cs">
+      <DependentUpon>HistoryDelivery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\NewDelivery.aspx.cs">
+      <DependentUpon>NewDelivery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\NewDelivery.aspx.designer.cs">
+      <DependentUpon>NewDelivery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\NewReservation.aspx.cs">
+      <DependentUpon>NewReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\NewReservation.aspx.designer.cs">
+      <DependentUpon>NewReservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\ReservationManage.aspx.cs">
+      <DependentUpon>ReservationManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\CustomerPage\ReservationManage.aspx.designer.cs">
+      <DependentUpon>ReservationManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\MainAdmin.Master.cs">
+      <DependentUpon>MainAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\MainAdmin.Master.designer.cs">
+      <DependentUpon>MainAdmin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\MainCustomer.Master.cs">
+      <DependentUpon>MainCustomer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\MainCustomer.Master.designer.cs">
+      <DependentUpon>MainCustomer.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\MainManager.Master.cs">
+      <DependentUpon>MainManager.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\MainManager.Master.designer.cs">
+      <DependentUpon>MainManager.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\AddDish.aspx.cs">
+      <DependentUpon>AddDish.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\AddDish.aspx.designer.cs">
+      <DependentUpon>AddDish.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\AnalyzeDaily.aspx.cs">
+      <DependentUpon>AnalyzeDaily.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\AnalyzeDaily.aspx.designer.cs">
+      <DependentUpon>AnalyzeDaily.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\AnalyzeHistoryDelivery.aspx.cs">
+      <DependentUpon>AnalyzeHistoryDelivery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\AnalyzeHistoryDelivery.aspx.designer.cs">
+      <DependentUpon>AnalyzeHistoryDelivery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\Bill.aspx.cs">
+      <DependentUpon>Bill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\Bill.aspx.designer.cs">
+      <DependentUpon>Bill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\DishCart.aspx.cs">
+      <DependentUpon>DishCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\DishCart.aspx.designer.cs">
+      <DependentUpon>DishCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\ManageReservation.aspx.cs">
+      <DependentUpon>ManageReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\ManageReservation.aspx.designer.cs">
+      <DependentUpon>ManageReservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\ManagerMain.aspx.cs">
+      <DependentUpon>ManagerMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\ManagerMain.aspx.designer.cs">
+      <DependentUpon>ManagerMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\PublishNews.aspx.cs">
+      <DependentUpon>PublishNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\PublishNews.aspx.designer.cs">
+      <DependentUpon>PublishNews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\WalkIn.aspx.cs">
+      <DependentUpon>WalkIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\ManagerPage\WalkIn.aspx.designer.cs">
+      <DependentUpon>WalkIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\localhost\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Image\Dish\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:3173/test/WebService1.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\localhost\</RelPath>
+      <UpdateFromURL>http://localhost:3173/test/WebService1.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>RestaurantWebReservation_localhost_WebService1</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5515</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,74 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainAdmin.master.cs" Inherits="RestaurantWebReservation.Presentation.MainAdmin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+</head>
+<body id="Body1" runat = "server">
+    <form id="Form1" runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    My Restaurant
+                </h1>
+            </div>
+            <div class="loginDisplay">
+            <div id="divLogin" runat="server">
+                    <asp:Label ID="LabelWelcome" runat="server" Font-Bold="True">Admin Profile</asp:Label>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+            </div>
+        </div>
+            <div class="clear hideSkiplink" id = "divMenu" runat = "server">
+            <table style="width:100%;">
+                    <tr>
+                        <td class="style2">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="False" 
+                                IncludeStyleBlock="False" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem Text="Dish Config" Value="Add" 
+                            NavigateUrl="~/Presentation/AdminPage/DishConfig.aspx">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Time Config" Value="Business Analyze" 
+                            NavigateUrl="~/Presentation/AdminPage/TimeConfig.aspx">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Table Config" Value="Manage" 
+                            NavigateUrl="~/Presentation/AdminPage/TableConfig.aspx">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="User Config" Value="User Management" 
+                            NavigateUrl="~/Presentation/AdminPage/UserConfig.aspx"></asp:MenuItem>
+                   </Items>
+                </asp:Menu>
+                        </td>
+                        <td class="style3">
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>

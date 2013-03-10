@@ -1,0 +1,110 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainCustomer.master.cs" Inherits="RestaurantWebReservation.Presentation.MainCustomer" %>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+</head>
+<body id = "body1" runat = "server">
+    <form id="Form1" runat="server">
+    <div class="page">
+        <div class="header">
+       <asp:ScriptManager ID="ScriptManager1" runat="server">
+                    </asp:ScriptManager>
+            <div class="title">
+                <h1>
+                    My Restaurant
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <div id="divNotLogin" runat = "server" >
+    <!--            <asp:UpdatePanel ID="UpdatePanel1" runat="server"> 
+                    <ContentTemplate> -->
+                        <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+                        
+                        <cc1:AutoCompleteExtender ID="TextBoxName_AutoCompleteExtender0" runat="server" 
+                            TargetControlID="TextBoxName" ServiceMethod="LoginAutoCommplete" 
+                            ServicePath="~/Application/Service/AutoCompleteWebService.asmx">
+                        </cc1:AutoCompleteExtender>
+ <!--                   </ContentTemplate>
+                </asp:UpdatePanel> -->
+                <br />
+                
+                <asp:TextBox ID="TextBoxPwd" runat="server" 
+                    style="margin-top: 0px; margin-bottom: 0px;" EnableTheming="True" 
+                        TextMode="Password"></asp:TextBox>
+                    
+                <p>
+                    <asp:Button ID="ButtonLogin" runat="server" onclick="ButtonLogin_Click" 
+                        Text="Login" />
+                    <asp:Button ID="ButtonRegister" runat="server" onclick="ButtonRegister_Click" 
+                        Text="Register" />
+                    
+                </p>
+                </div>
+            <div id="divLogin" runat="server">
+                    <asp:Label ID="LabelWelcome" runat="server"></asp:Label>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+            </div>
+        </div>
+            <div class="clear hideSkiplink">
+            <table style="width:100%;">
+                    <tr>
+                        <td class="style2">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="False" 
+                                IncludeStyleBlock="False" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem Text="Restaurant Home" Value="Restaurant Home" 
+                            NavigateUrl="~/Presentation/CustomerPage/CustomerMain.aspx"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Presentation/CustomerPage/NewReservation.aspx" 
+                            Text="Resere Now" Value="Resered A Meal">
+                            <asp:MenuItem NavigateUrl="~/Presentation/CustomerPage/NewReservation.aspx" 
+                                Text="Meal In Restaurant" Value="Position"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Presentation/CustomerPage/DishCart.aspx" 
+                                Text="Delivery" Value="Delivery"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="My History" Value="My History" 
+                            NavigateUrl="~/Presentation/CustomerPage/HistoryReservation.aspx">
+                            <asp:MenuItem Text="My Reservation" Value="My Reservation" 
+                                NavigateUrl="~/Presentation/CustomerPage/HistoryReservation.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="My Delivery" Value="My Delivery" 
+                                NavigateUrl="~/Presentation/CustomerPage/HistoryDelivery.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="My Cart" Value="My Cart" 
+                            NavigateUrl="~/Presentation/CustomerPage/NewDelivery.aspx"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+                        </td>
+                        <td class="style3">
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>

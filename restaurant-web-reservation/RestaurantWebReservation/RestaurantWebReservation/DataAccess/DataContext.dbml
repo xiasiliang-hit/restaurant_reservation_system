@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RestaurantWebReservation" Class="DataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\;Initial Catalog=RestaurantWebReservation;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="RestaurantWebReservationConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.delete_comment" Method="delete_comment">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.update_user" Method="update_user">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="pwd" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="mail" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.delete_dish" Method="delete_dish">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.delete_news" Method="delete_news">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.delete_reservation" Method="delete_reservation">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.delete_user" Method="delete_user">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.get_comment_by_dish" Method="get_comment_by_dish">
+    <Parameter Name="dish_name" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="get_comment_by_dishResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="content" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="about_dish" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.get_current_reservation_by_table" Method="get_current_reservation_by_table">
+    <Parameter Name="table_name" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="get_current_reservation_by_tableResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="arrive_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="table_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.get_dish_by_name" Method="get_dish_by_name">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="get_dish_by_nameResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pict_path" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="popularity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.get_dish_by_tag" Method="get_dish_by_tag">
+    <Parameter Name="tag_name" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="get_dish_by_tagResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pict_path" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="popularity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.get_dishquota_by_delivery" Method="get_dishquota_by_delivery">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="get_dishquota_by_deliveryResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="delivery_id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="dish_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="quota" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="note" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.get_history_reservation_by_user" Method="get_history_reservation_by_user">
+    <Parameter Name="user_from" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="get_history_reservation_by_userResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="arrive_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="table_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.get_hot_dish" Method="get_hot_dish">
+    <ElementType Name="get_hot_dishResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pict_path" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="popularity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.get_hot_tag" Method="get_hot_tag">
+    <ElementType Name="get_hot_tagResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="popularity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.get_table_by_id" Method="get_table_by_id">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="get_table_by_idResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pict_path" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="current_state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.get_tag_by_dish" Method="get_tag_by_dish">
+    <Parameter Name="dish_name" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="get_tag_by_dishResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="popularity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.insert_business_time" Method="insert_business_time">
+    <Parameter Name="keyword" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="time" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insert_comment" Method="insert_comment">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="content" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="about_dish" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="user_from" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insert_customer" Method="insert_customer">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="pwd" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="mail" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insert_delivery" Method="insert_delivery">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="user_from" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="customer_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="phone" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="address" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="commit_time" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="delivery_time" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insert_delivery_dish" Method="insert_delivery_dish">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="delivery_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="dish_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="quota" Type="System.Int32" DbType="Int" />
+    <Parameter Name="note" Type="System.String" DbType="NVarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insert_dish" Method="insert_dish">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="description" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="price" Type="System.Double" DbType="Float" />
+    <Parameter Name="pict_path" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="popularity" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insert_manager" Method="insert_manager">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="pwd" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="mail" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insert_news" Method="insert_news">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="title" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="content" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="publish_time" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="about_dish" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insert_reservation" Method="insert_reservation">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="user_from" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="customer_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="phone" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="arrive_time" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="table_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="seat" Type="System.Int32" DbType="Int" />
+    <Parameter Name="state" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insert_reservation_dish" Method="insert_reservation_dish">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="reservation_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="dish_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="quato" Type="System.Int32" DbType="Int" />
+    <Parameter Name="note" Type="System.String" DbType="NVarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insert_taganddish" Method="insert_taganddish">
+    <Parameter Name="tag_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="dish_name" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insert_walkin" Method="insert_walkin">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="user_from" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="customer_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="phone" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="arrive_time" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="table_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="seat" Type="System.Int32" DbType="Int" />
+    <Parameter Name="type" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.is_admin" Method="is_admin">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="pwd" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="is_admin" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <ElementType Name="is_adminResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="pwd" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.is_registered" Method="is_registered">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="is_exist" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.login_autocomplete" Method="login_autocomplete">
+    <Parameter Name="key" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="login_autocompleteResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.search_customer" Method="search_customer">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="search_customerResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.search_delivery_autocomplete" Method="search_delivery_autocomplete">
+    <Parameter Name="key" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="search_delivery_autocompleteResult">
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.search_delivery_by_keyword" Method="search_delivery_by_keyword">
+    <Parameter Name="key" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="search_delivery_by_keywordResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="commit_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="delivery_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.search_reservation_autocomplete" Method="search_reservation_autocomplete">
+    <Parameter Name="key" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="search_reservation_autocompleteResult">
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.select_all_businesstime" Method="select_all_businesstime">
+    <ElementType Name="select_all_businesstimeResult">
+      <Column Name="keyword" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.select_all_dish" Method="select_all_dish">
+    <ElementType Name="select_all_dishResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pict_path" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="popularity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.select_all_manager" Method="select_all_manager">
+    <ElementType Name="select_all_managerResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.select_all_news" Method="select_all_news">
+    <ElementType Name="select_all_newsResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="title" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="content" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="publish_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="about_dish" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.select_all_table" Method="select_all_table">
+    <ElementType Name="select_all_tableResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pict_path" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="current_state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.select_delivery_by_duration_and_user" Method="select_delivery_by_duration_and_user">
+    <Parameter Name="time_begin" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="time_end" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="user_from" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="select_delivery_by_duration_and_userResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="commit_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="delivery_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.select_delivery_by_user" Method="select_delivery_by_user">
+    <Parameter Name="user_from" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="select_delivery_by_userResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="commit_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="delivery_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.select_history_delivery_by_user" Method="select_history_delivery_by_user">
+    <Parameter Name="user_from" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="select_history_delivery_by_userResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="commit_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="delivery_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.select_reservation_by_duration_and_user" Method="select_reservation_by_duration_and_user">
+    <Parameter Name="time_begin" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="time_end" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="user_from" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="select_reservation_by_duration_and_userResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="arrive_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="table_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.select_reservation_by_user" Method="select_reservation_by_user">
+    <Parameter Name="user_from" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="select_reservation_by_userResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="arrive_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="table_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.select_timeout_delivery" Method="select_timeout_delivery">
+    <ElementType Name="select_timeout_deliveryResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="commit_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="delivery_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.select_timeout_reservation" Method="select_timeout_reservation">
+    <ElementType Name="select_timeout_reservationResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="arrive_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="table_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.select_undelived_delivery_by_user" Method="select_undelived_delivery_by_user">
+    <Parameter Name="user_from" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="select_undelived_delivery_by_userResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="commit_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="delivery_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.select_unfinished_reservation_by_user" Method="select_unfinished_reservation_by_user">
+    <Parameter Name="user_from" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="select_unfinished_reservation_by_userResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="arrive_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="table_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.truncate_business_time" Method="truncate_business_time">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.update_business_time" Method="update_business_time">
+    <Parameter Name="keyword" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="time" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.update_delivery" Method="update_delivery">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.update_dish" Method="update_dish">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="description" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="price" Type="System.Double" DbType="Float" />
+    <Parameter Name="pict_path" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="popularity" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.update_news" Method="update_news">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="title" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="content" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="publish_time" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="about_dish" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.update_reservation" Method="update_reservation">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="user_from" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="customer_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="phone" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="arrive_time" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="table_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="seat" Type="System.Int32" DbType="Int" />
+    <Parameter Name="type" Type="System.Int32" DbType="Int" />
+    <Parameter Name="state" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.update_state_delivery" Method="update_state_delivery">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="state" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.update_state_reservation" Method="update_state_reservation">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="state" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.update_state_table" Method="update_state_table">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="state" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insert_table" Method="insert_table">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="seat" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pict_path" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="current_state" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.get_reserved_tablename_and_reservation" Method="get_reserved_tablename_and_reservation">
+    <Parameter Name="time" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="get_reserved_tablename_and_reservationResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="arrive_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="table_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.get_table_by_name" Method="get_table_by_name">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="get_table_by_nameResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pict_path" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="current_state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.get_available_table" Method="get_available_table">
+    <Parameter Name="time" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="get_available_tableResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pict_path" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="current_state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.is_valid_user" Method="is_valid_user">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="pwd" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="is_valid" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <ElementType Name="is_valid_userResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.get_dishquota_by_reservation" Method="get_dishquota_by_reservation">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="get_dishquota_by_reservationResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="reservation_id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="dish_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="quato" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="note" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.get_reservation_by_id" Method="get_reservation_by_id">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="get_reservation_by_idResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="arrive_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="table_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.prolong_reservation" Method="prolong_reservation">
+    <Parameter Name="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="arrive_time" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.update_tag_pupularity_or_insert" Method="update_tag_pupularity_or_insert">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.select_all_history_reservation" Method="select_all_history_reservation">
+    <ElementType Name="select_all_history_reservationResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="arrive_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="table_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.select_all_history_delivery" Method="select_all_history_delivery">
+    <ElementType Name="select_all_history_deliveryResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="commit_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="delivery_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.search_current_reservation_by_keyword" Method="search_current_reservation_by_keyword">
+    <Parameter Name="key" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="search_current_reservation_by_keywordResult">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="user_from" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="arrive_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="table_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="seat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.update_dish_popularity" Method="update_dish_popularity">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.search_dish_by_keyword" Method="search_dish_by_keyword">
+    <Parameter Name="keyword" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="search_dish_by_keywordResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pict_path" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="popularity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
